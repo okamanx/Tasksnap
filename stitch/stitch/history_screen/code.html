@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1b1c1a",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "surface": "#fbf9f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#1b6d24",
+                    "on-primary-container": "#613100",
+                    "on-secondary-container": "#6f4600",
+                    "secondary": "#845400",
+                    "outline": "#8a7362",
+                    "primary-container": "#ff8a00",
+                    "surface-container-highest": "#e4e2df",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "surface-tint": "#914c00",
+                    "outline-variant": "#ddc1ae",
+                    "on-secondary-fixed": "#2a1800",
+                    "on-tertiary-container": "#00490e",
+                    "background": "#fbf9f6",
+                    "on-background": "#1b1c1a",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "on-surface-variant": "#564334",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#2f1500",
+                    "surface-variant": "#e4e2df",
+                    "on-tertiary-fixed": "#002204",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdcc4",
+                    "secondary-fixed": "#ffddb6",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbdad7",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "tertiary-container": "#6bbb68",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container": "#efeeeb",
+                    "error-container": "#ffdad6",
+                    "primary": "#914c00",
+                    "surface-container-high": "#eae8e5",
+                    "primary-fixed-dim": "#ffb77f",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-low": "#f5f3f0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#a3f69c",
+                    "surface-bright": "#fbf9f6",
+                    "secondary-container": "#feb246"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Manrope', sans-serif;
+        background-color: #fbf9f6;
+        color: #1b1c1a;
+      }
+      .glass-nav {
+        backdrop-filter: blur(32px);
+        -webkit-backdrop-filter: blur(32px);
+      }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-orange-50/80 dark:bg-zinc-950/80 backdrop-blur-xl fixed top-0 w-full z-50">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400" data-icon="grid_view">grid_view</span>
+</button>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-xl font-extrabold text-orange-600 dark:text-orange-400">TaskSnap</h1>
+</div>
+<button class="hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-orange-600 dark:text-orange-400" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Section Header -->
+<div class="mb-8">
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface mb-2">History</h2>
+<p class="text-on-surface-variant text-sm font-medium">Review your completed and active tasks</p>
+</div>
+<!-- Segmented Control -->
+<div class="bg-surface-container p-1.5 rounded-full flex gap-1 mb-8 shadow-sm">
+<button class="flex-1 bg-surface-container-lowest text-on-surface py-3 px-6 rounded-full font-bold text-sm transition-all duration-300 shadow-sm">
+                Received
+            </button>
+<button class="flex-1 text-on-surface-variant hover:bg-surface-container-high py-3 px-6 rounded-full font-semibold text-sm transition-all duration-300">
+                Posted
+            </button>
+</div>
+<!-- History List (Received Tasks) -->
+<div class="space-y-6">
+<!-- Task Card 1 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col gap-4 shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-md overflow-hidden bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up of golden retriever dog being groomed by a professional hand in a bright sunlit pet salon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBM2MDaMT9WissUlHnNvJuMpl4aNaFh0zhB3GGuhlZIGeTzPh8ZT2LSSduDowlnkL4MrE_yPOjdbE2NNrsRqRb4X6dsjIRmeYDEZM482Nk3ngdMZ481vuLewXHz3zCzVbbuCPvO2-E6Bq_FaBf50jDpRVCxVHehUSLeQeTXYMof8NlSJ0pTBrcCe5NvRpXXyW-ygp7uMQggaI8Lj3aCdBsr58-wdCVm-wzwxsg5bTRWH2TcZtoQwIAcIHSNbYGBU2tgdQI1Ze3-zqQ"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg leading-tight group-hover:text-primary transition-colors">Premium Pet Grooming</h3>
+<p class="text-on-surface-variant text-sm mt-1">Completed 2 days ago</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-tertiary font-bold text-xl tracking-tight">₹1,250</span>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="star">star</span>
+<span class="text-sm font-semibold text-on-surface">5.0 Rated</span>
+<span class="mx-1 text-outline-variant">•</span>
+<span class="text-sm text-on-surface-variant">Client: Anita Roy</span>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col gap-4 shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-md overflow-hidden bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="Interior of a modern kitchen with natural light and sparkling clean white countertops and minimal decor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0CAu6YIgmaO7PyyyqjMCVEgm0teol__ztM5G1iW5gYvelbjz-poxmpIICGw5E8T9jltkiFLxV2-IjBk3kWsRjcCMrKXcWP-rv5YHmsSs-i5z2DdBAIsY0BDCTrJ083ca6-DFLLUufCaxNyMQb0rfLko5rWR5AyTXX5OJk4gTOuqjn5hDgfn_QgUjhQgBuYsRIEzy-ei9yt1e_x4KnhgVIPV4i7or1OTgxXN-3zRuJCHv4rrIAUhgqTMbIL6FqM06Rni7p8dm1zJc"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg leading-tight group-hover:text-primary transition-colors">Deep Kitchen Cleaning</h3>
+<p class="text-on-surface-variant text-sm mt-1">Completed last week</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-tertiary font-bold text-xl tracking-tight">₹800</span>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="star">star</span>
+<span class="text-sm font-semibold text-on-surface">4.8 Rated</span>
+<span class="mx-1 text-outline-variant">•</span>
+<span class="text-sm text-on-surface-variant">Client: Rahul Sharma</span>
+</div>
+</div>
+<!-- Task Card 3 -->
+<div class="bg-surface-container-lowest rounded-lg p-6 flex flex-col gap-4 shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] relative overflow-hidden group">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-14 h-14 rounded-md overflow-hidden bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="A stylish indoor plant in a ceramic pot placed on a wooden shelf with soft natural window lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBffnNMmKJFTe3COFVORRHfY2U33LHQj0xxa7EOGuPwP7Au2EZt5V8L8borbqsqYwGhgi5o6fRB6WvXxN2iZrJJbgen262f1Zx5-V9PsAnfuzqNa7YCgSgNoeA2DLFzzhUGbrMPqdDYryDNL8W7cy8MiyXUCV_BF8pEBajda_LM-OQKpV5W-Zz4GbLd0MhxYOliSI5c35sRiXi0qt_E7JnJI0EzhvSjmM00mEn69sW1zel9k6cjfYSwycRuAzFUFcVS-lfsLWfwGJM"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg leading-tight group-hover:text-primary transition-colors">Plant Care &amp; Watering</h3>
+<p class="text-on-surface-variant text-sm mt-1">Completed 10 days ago</p>
+</div>
+</div>
+<div class="flex flex-col items-end gap-1">
+<span class="text-tertiary font-bold text-xl tracking-tight">₹350</span>
+<span class="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">Completed</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-2 border-t border-surface-container-low">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="star">star</span>
+<span class="text-sm font-semibold text-on-surface">5.0 Rated</span>
+<span class="mx-1 text-outline-variant">•</span>
+<span class="text-sm text-on-surface-variant">Client: Mira Patel</span>
+</div>
+</div>
+<!-- Empty State Suggestion for Posted (Hidden by default in logic but shown here as asymmetric content) -->
+<div class="bg-surface-container-low border border-dashed border-outline-variant rounded-lg p-8 flex flex-col items-center justify-center text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="add_task">add_task</span>
+</div>
+<h4 class="font-headline font-bold text-on-surface">Post a New Task</h4>
+<p class="text-on-surface-variant text-sm max-w-xs mt-2">Need help with something? Post a task and get it done by experts.</p>
+<button class="mt-6 bg-gradient-to-br from-orange-500 to-orange-300 text-white px-8 py-3 rounded-full font-bold shadow-lg shadow-orange-500/20 active:scale-95 transition-transform">
+                    Get Started
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] z-50">
+<div class="bg-white/70 dark:bg-zinc-900/70 backdrop-blur-2xl rounded-full border border-white/20 dark:border-zinc-800/20 shadow-[0_12px_30px_0_rgba(0,0,0,0.06)] px-2 py-2 flex justify-around items-center">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="home_max">home_max</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Home</span>
+</a>
+<!-- Task -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Task</span>
+</a>
+<!-- History (ACTIVE) -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-orange-300 text-white rounded-full p-3 shadow-lg shadow-orange-500/20 scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="history" style="font-variation-settings: 'FILL' 1;">history</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">History</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1b1c1a",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "surface": "#fbf9f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#1b6d24",
+                    "on-primary-container": "#613100",
+                    "on-secondary-container": "#6f4600",
+                    "secondary": "#845400",
+                    "outline": "#8a7362",
+                    "primary-container": "#ff8a00",
+                    "surface-container-highest": "#e4e2df",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "surface-tint": "#914c00",
+                    "outline-variant": "#ddc1ae",
+                    "on-secondary-fixed": "#2a1800",
+                    "on-tertiary-container": "#00490e",
+                    "background": "#fbf9f6",
+                    "on-background": "#1b1c1a",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "on-surface-variant": "#564334",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#2f1500",
+                    "surface-variant": "#e4e2df",
+                    "on-tertiary-fixed": "#002204",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdcc4",
+                    "secondary-fixed": "#ffddb6",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbdad7",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "tertiary-container": "#6bbb68",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container": "#efeeeb",
+                    "error-container": "#ffdad6",
+                    "primary": "#914c00",
+                    "surface-container-high": "#eae8e5",
+                    "primary-fixed-dim": "#ffb77f",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-low": "#f5f3f0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#a3f69c",
+                    "surface-bright": "#fbf9f6",
+                    "secondary-container": "#feb246"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .glass-panel {
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-orange-50/80 dark:bg-zinc-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<button class="text-orange-600 dark:text-orange-400 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="font-['Plus_Jakarta_Sans'] font-bold tracking-tight text-xl font-extrabold text-orange-600 dark:text-orange-400">
+            TaskSnap
+        </div>
+<button class="text-orange-600 dark:text-orange-400 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+</header>
+<main class="pt-20 px-6 max-w-2xl mx-auto">
+<!-- Search Bar -->
+<!-- Banner Section -->
+<section class="mb-10 relative overflow-hidden rounded-lg bg-gradient-to-br from-primary-container to-secondary-container p-8 shadow-[0_12px_30px_0_rgba(255,138,0,0.15)]">
+<div class="relative z-10 max-w-[60%]">
+<h2 class="text-2xl font-extrabold text-on-primary leading-tight mb-4">Earn money with nearby tasks</h2>
+<button class="bg-surface-container-lowest text-primary font-bold px-6 py-2.5 rounded-md hover:scale-105 active:scale-95 transition-all shadow-sm">
+                    Explore
+                </button>
+</div>
+<!-- Illustration Placeholder Logic -->
+<div class="absolute right-0 bottom-0 top-0 w-1/2 overflow-hidden flex items-end">
+<img alt="" class="w-full h-full object-contain object-right-bottom transform translate-y-4" data-alt="clean minimal illustration of a friendly person in a warm orange outfit helping an elderly neighbor with groceries, soft sunlight, flat design style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAT8G0z52ICGiu_gOcQoeyh5NqtxsY9l-IOTohDQJYXR76J2ipX5tKe4CN-7S020GEBuD2XjhWHshynU0udLFHloQhT4xaWsbeEyR7l_SLm40xhIEmIY-sHr6DudnBfEiKp27iHtPUM0nry0MlrCVCiB0V9B8BQEHYgcNU7z7_ulWLkGc1n0tYISqIaZ9HImypvPi2UZQDHM4_7tHG6za3ScN1lvQsqrI1WJc5RWvu0mKpfgXpGAvDYd1eccKfVajpvkQ4J9lU_dNk"/>
+</div>
+</section>
+<!-- Categories Section -->
+<section class="mb-8">
+<div class="flex gap-3 overflow-x-auto pb-4 no-scrollbar">
+<button class="flex-none bg-primary text-on-primary px-5 py-2 rounded-full text-sm font-bold shadow-md shadow-primary/20">All</button>
+<button class="flex-none bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-colors">Cleaning</button>
+<button class="flex-none bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-colors">Delivery</button>
+<button class="flex-none bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-colors">Help</button>
+<button class="flex-none bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-colors">Plumbing</button>
+<button class="flex-none bg-surface-container-high text-on-surface-variant px-5 py-2 rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-colors">Handyman</button>
+</div>
+</section>
+<!-- Task List Header -->
+<div class="flex justify-between items-end mb-6 px-1">
+<h3 class="text-xl font-bold tracking-tight">Active Tasks</h3>
+<span class="text-primary text-sm font-bold">See all</span>
+</div>
+<!-- Task List Bento/Cards -->
+<div class="grid gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] group hover:translate-y-[-4px] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="professional portrait of a middle-aged woman smiling warmly, clean studio background, soft cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO7oqzP17AkbNaYl_jU1ooyBqG66DgtXAJwWRRptm0qr_Su2nQ4PZW7xS8TfoFgmzGRnRkEf0n_DUt4f8YN9U5D6XRWdp80afVLmilcD8KgDULAH70bz9PrO2e7LefNjLJfdfA1Gw9O8JZT01vslXHEs2-sqeyOnFHl0-svoNOXuAshj0UkwhidJcbro0ebhxNfEroj6nyAssVPt8NR1UaJ5rqnnOsAavwCEsjJ8AjxxnlfuTtI2K20BSqWn8P2Z1JFtyLn9Uboxk"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Priya S.</p>
+<div class="flex items-center text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="location_on">location_on</span>
+                                1.2 km away
+                            </div>
+</div>
+</div>
+<div class="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-sm font-bold">
+                        ₹800
+                    </div>
+</div>
+<h4 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Urban Balcony Garden Setup</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2">Need help arranging pots and soil for a small 4x8 balcony. Looking for someone with basic plant knowledge.</p>
+<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant opacity-60">Posted 2h ago</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1">
+                        Apply Now <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] group hover:translate-y-[-4px] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="young man with friendly expression, tech startup vibe, outdoor urban background blurred" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADoj_6KUYlVgGrULvqOge6pdKLNxcpZ3nV-Bb1bgLY0__JU3rPokbM9FGAOZzUgQU3q4oqxQEm1wsULVN-RTK98yAmJyCWxJ42a0a1criSfWIm0vXFBJ9Ro9TiVYWFRHiBDPBLgU2jNiRhpRbVThDfM7RD8FT8ARbKuX4FGBWkxWBJdVIt4rmsZR8x6EUukFCnxBLdGvXKrnRwwwAjCmG3q-V-S-gnQVr1BLPjgDREzgPwxTk6XAiwNJaa2bTpbWozP7TQPxCMBhc"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Rahul M.</p>
+<div class="flex items-center text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="location_on">location_on</span>
+                                2.5 km away
+                            </div>
+</div>
+</div>
+<div class="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-sm font-bold">
+                        ₹1,200
+                    </div>
+</div>
+<h4 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">IKEA Furniture Assembly</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2">Looking for someone to assemble a PAX wardrobe and a desk. Should have their own basic tools.</p>
+<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant opacity-60">Posted 5h ago</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1">
+                        Apply Now <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] group hover:translate-y-[-4px] transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden">
+<img alt="" class="w-full h-full object-cover" data-alt="portrait of a young woman with creative styling, bright colorful background, happy energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCShQopgUPPx3YLhAlaUcTunmXtB0QhlPweoHwYjDn8HJFZUbRYa0lC0xJPi1pt-Lz2sFYy3dBuwxEkDbjtAZXO3_3H-IYdOqcc6bGI9Ce7iZa-itsZIjenpoKnnShB56M6cGnMBBIZqPPmiSm7xspPz0rdv9L9aj4oJRtG9w6dkw4VFH2liyAl5mohddyuNDfkBZwPFoNPPG9Il_4vR8GT87_E5LQe37WHEX82K4TnbAsiHD8zxnOkq_YscOOaeBtCJtui020mJmU"/>
+</div>
+<div>
+<p class="text-sm font-bold text-on-surface">Ananya K.</p>
+<div class="flex items-center text-[11px] text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] mr-1" data-icon="location_on">location_on</span>
+                                0.8 km away
+                            </div>
+</div>
+</div>
+<div class="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-sm font-bold">
+                        ₹500
+                    </div>
+</div>
+<h4 class="text-lg font-bold mb-2 group-hover:text-primary transition-colors">Grocery Pickup &amp; Delivery</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed line-clamp-2">Need a few items from the organic store nearby delivered to my home. Distance is less than 1km.</p>
+<div class="mt-4 pt-4 border-t border-surface-container flex justify-between items-center">
+<span class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant opacity-60">Posted 10m ago</span>
+<button class="text-primary font-bold text-sm flex items-center gap-1">
+                        Apply Now <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for Posting Task -->
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 w-full z-50 flex justify-around items-center px-2">
+<div class="bg-white/70 dark:bg-zinc-900/70 backdrop-blur-2xl fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] rounded-full border border-white/20 dark:border-zinc-800/20 shadow-[0_12px_30px_0_rgba(0,0,0,0.06)] flex justify-around items-center py-2 px-1">
+<!-- Home (Active) -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-orange-300 text-white rounded-full p-3 shadow-lg shadow-orange-500/20 w-16 h-16 transition-all duration-300 ease-out scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="home_max" style="font-variation-settings: 'FILL' 1;">home_max</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Home</span>
+</a>
+<!-- Task -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Task</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">History</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Profile</span>
+</a>
+</div>
+</nav>
+</body></html>

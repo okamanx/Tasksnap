@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Register | TaskSnap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#564334",
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-highest": "#e4e2df",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "error": "#ba1a1a",
+                    "on-tertiary-fixed": "#002204",
+                    "tertiary": "#1b6d24",
+                    "on-error": "#ffffff",
+                    "outline": "#8a7362",
+                    "on-primary-fixed": "#2f1500",
+                    "on-error-container": "#93000a",
+                    "background": "#fbf9f6",
+                    "surface-container-low": "#f5f3f0",
+                    "surface-container-high": "#eae8e5",
+                    "on-secondary-container": "#6f4600",
+                    "on-primary": "#ffffff",
+                    "primary-fixed-dim": "#ffb77f",
+                    "tertiary-fixed-dim": "#88d982",
+                    "tertiary-fixed": "#a3f69c",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "on-secondary": "#ffffff",
+                    "secondary-fixed": "#ffddb6",
+                    "surface": "#fbf9f6",
+                    "surface-dim": "#dbdad7",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#2a1800",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "surface-tint": "#914c00",
+                    "surface-variant": "#e4e2df",
+                    "primary-container": "#ff8a00",
+                    "secondary": "#845400",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "on-background": "#1b1c1a",
+                    "surface-container": "#efeeeb",
+                    "outline-variant": "#ddc1ae",
+                    "primary": "#914c00",
+                    "on-primary-container": "#613100",
+                    "secondary-container": "#feb246",
+                    "on-surface": "#1b1c1a",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "on-tertiary-container": "#00490e",
+                    "primary-fixed": "#ffdcc4",
+                    "surface-bright": "#fbf9f6",
+                    "inverse-on-surface": "#f2f0ed",
+                    "tertiary-container": "#6bbb68"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .font-plus-jakarta-sans { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col items-center">
+<!-- TopAppBar Shell (Suppressed Navigation for Transactional Screen) -->
+<header class="w-full top-0 sticky bg-[#FFFBF7] z-50">
+<div class="flex items-center justify-between px-6 py-6 w-full">
+<div class="flex items-center gap-4">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-on-surface" data-icon="arrow_back">arrow_back</span>
+</button>
+</div>
+<span class="text-xl font-headline tracking-tighter text-[#FF8A00] font-bold">TaskSnap</span>
+<div class="w-10"></div> <!-- Spacer for centering -->
+</div>
+</header>
+<main class="w-full max-w-lg px-6 pb-32 pt-8 flex flex-col">
+<!-- Hero Section -->
+<section class="mb-12">
+<h1 class="text-4xl font-headline font-extrabold tracking-tighter text-on-surface mb-2">Create Account</h1>
+<p class="text-on-surface-variant font-body">Join the community of local taskers and clients today.</p>
+</section>
+<!-- Registration Form Card -->
+<div class="bg-surface-container-lowest rounded-lg p-8 shadow-[0_12px_30px_0_rgba(27,28,26,0.06)] border border-surface-container-highest/20">
+<form class="space-y-6">
+<!-- Name Field -->
+<div class="space-y-2">
+<label class="block text-sm font-label font-bold text-on-surface-variant px-1" for="name">Full Name</label>
+<div class="relative">
+<input class="w-full h-14 px-5 rounded-md bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container/30 transition-all placeholder:text-outline/50" id="name" placeholder="Enter your full name" type="text"/>
+</div>
+</div>
+<!-- Phone Number Field -->
+<div class="space-y-2">
+<label class="block text-sm font-label font-bold text-on-surface-variant px-1" for="phone">Phone Number</label>
+<div class="relative">
+<input class="w-full h-14 px-5 rounded-md bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container/30 transition-all placeholder:text-outline/50" id="phone" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<label class="block text-sm font-label font-bold text-on-surface-variant px-1" for="password">Password</label>
+<div class="relative">
+<input class="w-full h-14 px-5 rounded-md bg-surface-container-low border-none focus:ring-2 focus:ring-primary-container/30 transition-all placeholder:text-outline/50" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<!-- Skill Selection Toggle -->
+<div class="pt-4">
+<label class="block text-sm font-label font-bold text-on-surface-variant px-1 mb-3">What are you looking for?</label>
+<div class="grid grid-cols-2 gap-3 p-1.5 bg-surface-container-low rounded-md">
+<label class="relative cursor-pointer group">
+<input checked="" class="peer sr-only" name="skill_type" type="radio"/>
+<div class="h-11 flex items-center justify-center rounded-md text-sm font-bold transition-all peer-checked:bg-white peer-checked:text-primary-container peer-checked:shadow-sm text-on-surface-variant group-hover:text-on-surface">
+                                Unskilled
+                            </div>
+</label>
+<label class="relative cursor-pointer group">
+<input class="peer sr-only" name="skill_type" type="radio"/>
+<div class="h-11 flex items-center justify-center rounded-md text-sm font-bold transition-all peer-checked:bg-white peer-checked:text-primary-container peer-checked:shadow-sm text-on-surface-variant group-hover:text-on-surface">
+                                Skilled
+                            </div>
+</label>
+</div>
+</div>
+<!-- Conditional Upload Section (Visible for Skilled) -->
+<div class="mt-8 p-6 bg-surface-container-high/40 rounded-lg border-2 border-dashed border-outline-variant/30 space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<div>
+<p class="font-bold text-on-surface leading-tight">Upload Portfolio</p>
+<p class="text-xs text-on-surface-variant font-medium">Testimonials or PDF portfolio</p>
+</div>
+</div>
+<div class="w-full h-12 flex items-center justify-center rounded-md bg-white border border-surface-container-highest cursor-pointer hover:bg-surface-container-low transition-colors text-sm font-bold text-on-surface">
+                        Select File
+                    </div>
+</div>
+<!-- Register Button -->
+<div class="pt-6">
+<button class="w-full h-16 rounded-md bg-gradient-to-br from-[#FF8A00] to-[#FFB347] text-white font-headline font-extrabold text-lg shadow-[0_12px_24px_-8px_rgba(255,138,0,0.5)] hover:scale-[1.02] active:scale-95 transition-all">
+                        Register
+                    </button>
+</div>
+</form>
+</div>
+<!-- Secondary Actions -->
+<div class="mt-8 text-center">
+<p class="text-on-surface-variant text-sm font-medium">
+                Already have an account? 
+                <a class="text-[#FF8A00] font-bold hover:underline ml-1" href="#">Log In</a>
+</p>
+</div>
+<!-- Decorative Element -->
+<div class="mt-16 relative w-full h-48 overflow-hidden rounded-lg">
+<img alt="Collaboration" class="w-full h-full object-cover" data-alt="high-quality lifestyle shot of two professionals collaborating in a bright modern workspace with warm natural light and plants" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeuZt_ZG-4Z68bi3jObj55nyJixR9nRo3nH4yetH-CRMwiwbovaRUdvp7aB4VjlJJy_FOrRXxeRpx_1dMNhnW9qN1DFru9fyjjeo5rbkmBkvkBQCH3QZVCTkctAzNbHIz3BHJ-N8m2QeYVGRBZULPEJFmqrG8tso_Q0rIHHzsk9K1XaY1oRsMu2kBap1SI5iUNINZt_BKgZ5wvft94SGKbtHpyiI-uL9TCpHmoi0gu4YuiCnOdwuZokydqutIZx1oDmlXVSiBlUR0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+</main>
+<!-- Bottom Navigation Suppressed for Registration -->
+</body></html>

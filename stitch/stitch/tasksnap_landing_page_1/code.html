@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskSnap - Hyperlocal Task Marketplace</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed-variant": "#643f00",
+                    "inverse-surface": "#30312f",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface": "#fbf9f6",
+                    "primary-container": "#ff8a00",
+                    "on-surface": "#1b1c1a",
+                    "surface-tint": "#914c00",
+                    "surface-container-low": "#f5f3f0",
+                    "secondary-fixed": "#ffddb6",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-secondary-fixed": "#2a1800",
+                    "surface-dim": "#dbdad7",
+                    "on-secondary": "#ffffff",
+                    "surface-bright": "#fbf9f6",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-secondary-container": "#6f4600",
+                    "outline-variant": "#ddc1ae",
+                    "on-tertiary-fixed": "#002204",
+                    "on-background": "#1b1c1a",
+                    "surface-container-highest": "#e4e2df",
+                    "secondary-container": "#feb246",
+                    "error-container": "#ffdad6",
+                    "tertiary-container": "#6bbb68",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "error": "#ba1a1a",
+                    "background": "#fbf9f6",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "surface-container": "#efeeeb",
+                    "surface-container-high": "#eae8e5",
+                    "primary": "#914c00",
+                    "on-tertiary": "#ffffff",
+                    "inverse-primary": "#ffb77f",
+                    "surface-variant": "#e4e2df",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "tertiary-fixed": "#a3f69c",
+                    "tertiary": "#1b6d24",
+                    "on-primary-fixed": "#2f1500",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary": "#845400",
+                    "primary-fixed": "#ffdcc4",
+                    "outline": "#8a7362",
+                    "primary-fixed-dim": "#ffb77f",
+                    "on-surface-variant": "#564334",
+                    "on-primary-container": "#613100",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#00490e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(251, 249, 246, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 30px 0 rgba(27, 28, 26, 0.06);
+        }
+        .sunlight-gradient {
+            background: linear-gradient(135deg, #FF8A00 0%, #FFB347 100%);
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 tonal-shift bg-stone-100/50 dark:bg-stone-900/50 backdrop-blur-xl">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-4">
+<div class="text-2xl font-extrabold text-[#FF8A00] dark:text-[#FFB347] font-['Plus_Jakarta_Sans'] tracking-tight">
+                TaskSnap
+            </div>
+<div class="hidden md:flex items-center gap-10 font-['Plus_Jakarta_Sans'] font-bold tracking-tight">
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#FF8A00] transition-colors text-sm uppercase tracking-wider" href="#how-it-works">How it Works</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#FF8A00] transition-colors text-sm uppercase tracking-wider" href="#benefits">Benefits</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-[#FF8A00] transition-colors text-sm uppercase tracking-wider" href="#download">Download</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2 rounded-xl text-[#FF8A00] font-bold hover:bg-stone-100/50 transition-all text-sm uppercase">Login</button>
+<button class="px-6 py-2.5 rounded-xl sunlight-gradient text-white font-bold cloud-shadow hover:scale-95 transition-all duration-200 text-sm uppercase tracking-wide">Get Started</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative px-8 pt-12 pb-24 md:pt-24 md:pb-40 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-7 space-y-8">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary-container/20 text-on-secondary-container border border-secondary-container/10">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span class="text-sm font-bold tracking-tight uppercase">Trusted by 10,000+ neighbors</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.05] tracking-tight">
+                        Earn instantly by completing <span class="text-primary-container">nearby tasks</span>
+</h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-2xl font-medium leading-relaxed">
+                        Join your local community on TaskSnap and turn your spare time into extra income or get help with your daily to-do list.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button class="px-8 py-4 rounded-md sunlight-gradient text-white text-lg font-bold cloud-shadow hover:scale-95 transition-all duration-200 flex items-center justify-center gap-3">
+                            Download the App
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 rounded-md bg-surface-container-high text-on-surface text-lg font-bold hover:bg-surface-container-highest transition-all duration-200">
+                            Learn More
+                        </button>
+</div>
+<div class="flex items-center gap-6 pt-8">
+<div class="flex -space-x-3">
+<img class="w-12 h-12 rounded-full border-4 border-surface" data-alt="portrait of a young woman with a friendly smile outside in soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHZ9BWjudB3qBLFunRXX3sZ9fA7DyuQQVJ-srYKheFCAH0RzGh2xsbLUYe2aeAr5kpcCUaiTFtk_ZRaKYe8fq89BByGd8ShbBD_OhbrhLjRF5On41p_VmKYMj1L7FUq01PW_fLiqLkwEvDnwmZ6dgdbjf0Pws6SU5Yky7wisIBH9sNCtw28Ik0SBQpT6xiag3sovPHLcAFdMfmEX8my3bpqywwWQJ1mOJPGAAAWT-Ae_wzAKrKLr2bwyWmTYUtvjqF1XUGmdsN3BY"/>
+<img class="w-12 h-12 rounded-full border-4 border-surface" data-alt="portrait of a man with a warm expression in a professional setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkUdDR6FJmOX5Yhy084iHby0En5gUvVQmQhbZdy-pcwQXtMC62IciXQIjk0KBnnhS2EobHE0uGcG_8uCpDa8rxA2j9obkuemGC2p3XxbKitrabz8mjvxmBE6ttYRlsN3SQwjnWkIYodWBOEG8whz1R5pHuREvAQUCO5sbJLTzbDoRBg8OCSPpNM2Jr336iATYaiUSPX38oXUb-57ugQLhgG75Yob6gCN92FmoNETM9VXOd_L-oDug4NNnvz3WsvgXZK9cmKnYH03I"/>
+<img class="w-12 h-12 rounded-full border-4 border-surface" data-alt="close up headshot of a person smiling with a park background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlS0bgPYvQGcFaynDu9OpqcRJN1oiyuGUm1gVD4g54ObgNZ5LENU88teNyDraFOd_kQ0jR6QWHP6mx0uTKPrn7XWAXrOdokqOEP7SA6u0g0G4pZiArlpQPIL_59_A-lG7oxJ1BBHl1SLgl40IWA5M0y8vGuOUeXz5ewGXPm1iJc_aO8U5GI2uDb0vjTwZX8d2orOxsENTd1RIrCVnKpWSQMsIV_tAB3pvIhdxKn9W2ZnpOta_35BsHG9TO2fylfomk7oOmjvqt8Xw"/>
+</div>
+<div class="space-y-1">
+<div class="flex gap-1 text-primary-container">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-sm font-bold text-on-surface-variant">4.8/5 neighborhood rating</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-secondary-container/20 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-10 -right-10 w-40 h-40 bg-primary-container/20 rounded-full blur-3xl"></div>
+<div class="relative z-10 glass-card rounded-xl p-4 cloud-shadow rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="rounded-lg object-cover w-full aspect-[4/5]" data-alt="two friendly young adults laughing while carrying heavy cardboard boxes during a house move in a bright modern apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpGDiLa7ctONn3N1oyWxozqle0wxPgL0ZBudPbbO07VOuOBYIez2f0G-ZYFW4BCWy7kTY3mesVCSvS9qf_-AmbY-QZAK_ryoIZNFu_zz-L7tUaa9HgUj-4m9TCN93BVUxBOnh95BqfxKV2IUbuy7-FgIcPNVZbuWdHbTmLFlwZEnWDtg-KF3ebIb3eqJ5V7giAvzsqBrhV1GjTE3GGzWI-W3qEP1lq88EsWfHaZiIl5oj7WbqfOvDbo50bA1bZfv1-bab9sUOKti4"/>
+<div class="absolute bottom-10 -left-8 glass-card p-6 rounded-lg cloud-shadow max-w-[200px] border border-white/50">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Task Complete</span>
+</div>
+<p class="text-sm font-bold leading-tight">Groceries delivered to Mrs. Higgins</p>
+<p class="text-xs text-on-surface-variant mt-2 font-medium">Earned +$18.50</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works Section -->
+<section class="bg-surface-container-low py-32" id="how-it-works">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-20 space-y-4">
+<h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">How it Works</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto text-lg">Simple, transparent, and built for your community.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Step 1 -->
+<div class="group">
+<div class="bg-surface-container-lowest rounded-lg p-10 cloud-shadow h-full border border-surface-container/50 group-hover:-translate-y-2 transition-all duration-300">
+<div class="w-16 h-16 rounded-md bg-primary-container/10 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-primary-container text-4xl">edit_note</span>
+</div>
+<h3 class="text-2xl font-extrabold mb-4">Post a Task</h3>
+<p class="text-on-surface-variant leading-relaxed">Describe what you need help with. From furniture assembly to garden cleanup, no task is too small.</p>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="group">
+<div class="bg-surface-container-lowest rounded-lg p-10 cloud-shadow h-full border border-surface-container/50 group-hover:-translate-y-2 transition-all duration-300">
+<div class="w-16 h-16 rounded-md bg-secondary-container/10 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-secondary-container text-4xl">group_add</span>
+</div>
+<h3 class="text-2xl font-extrabold mb-4">Get it Done</h3>
+<p class="text-on-surface-variant leading-relaxed">Nearby Taskers apply to help. Review profiles, ratings, and choose the perfect person for your task.</p>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="group">
+<div class="bg-surface-container-lowest rounded-lg p-10 cloud-shadow h-full border border-surface-container/50 group-hover:-translate-y-2 transition-all duration-300">
+<div class="w-16 h-16 rounded-md bg-tertiary-container/10 flex items-center justify-center mb-8">
+<span class="material-symbols-outlined text-tertiary-container text-4xl">account_balance_wallet</span>
+</div>
+<h3 class="text-2xl font-extrabold mb-4">Earn &amp; Pay</h3>
+<p class="text-on-surface-variant leading-relaxed">Secure payments once the job is finished. Taskers get paid instantly and securely through the app.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Benefits Section -->
+<section class="py-32" id="benefits">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+<!-- Taskers -->
+<div class="space-y-12">
+<div class="space-y-4">
+<span class="text-[#FF8A00] font-bold uppercase tracking-[0.2em] text-sm">For Taskers</span>
+<h2 class="text-4xl font-extrabold tracking-tight">Turn your free time into earnings</h2>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="mt-1 bg-tertiary-container/20 p-2 rounded-md">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Earn on your schedule</h4>
+<p class="text-on-surface-variant font-medium">Work as much or as little as you want. You are your own boss.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="mt-1 bg-tertiary-container/20 p-2 rounded-md">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">payments</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Instant payouts</h4>
+<p class="text-on-surface-variant font-medium">No waiting for weekly cycles. Get your money right after the task is approved.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="mt-1 bg-tertiary-container/20 p-2 rounded-md">
+<span class="material-symbols-outlined text-tertiary-container" style="font-variation-settings: 'FILL' 1;">location_on</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Local opportunities</h4>
+<p class="text-on-surface-variant font-medium">Discover tasks just blocks away. Save time on commuting and help your neighbors.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Posters -->
+<div class="space-y-12">
+<div class="space-y-4">
+<span class="text-[#FF8A00] font-bold uppercase tracking-[0.2em] text-sm">For Posters</span>
+<h2 class="text-4xl font-extrabold tracking-tight">Get help when you need it most</h2>
+</div>
+<div class="space-y-8">
+<div class="flex gap-6 items-start">
+<div class="mt-1 bg-secondary-container/20 p-2 rounded-md">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Trusted neighbors</h4>
+<p class="text-on-surface-variant font-medium">All Taskers are identity-verified and rated by your own community members.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="mt-1 bg-secondary-container/20 p-2 rounded-md">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">local_offer</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Affordable help</h4>
+<p class="text-on-surface-variant font-medium">Get competitive prices by working directly with people in your neighborhood.</p>
+</div>
+</div>
+<div class="flex gap-6 items-start">
+<div class="mt-1 bg-secondary-container/20 p-2 rounded-md">
+<span class="material-symbols-outlined text-secondary-container" style="font-variation-settings: 'FILL' 1;">lock_person</span>
+</div>
+<div>
+<h4 class="text-xl font-bold mb-2">Simple &amp; Secure</h4>
+<p class="text-on-surface-variant font-medium">Secure escrow payments and built-in chat keep your transactions safe and private.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="px-8 pb-32" id="download">
+<div class="max-w-7xl mx-auto sunlight-gradient rounded-xl overflow-hidden cloud-shadow relative">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<div class="grid grid-cols-4 gap-4 p-8">
+<div class="aspect-square bg-white rounded-lg"></div>
+<div class="aspect-square bg-white rounded-lg"></div>
+<div class="aspect-square bg-white rounded-lg"></div>
+<div class="aspect-square bg-white rounded-lg"></div>
+<div class="aspect-square bg-white rounded-lg"></div>
+<div class="aspect-square bg-white rounded-lg"></div>
+</div>
+</div>
+<div class="relative z-10 px-12 py-20 flex flex-col items-center text-center text-white">
+<h2 class="text-4xl md:text-6xl font-extrabold mb-8 max-w-3xl leading-tight">Ready to join your local neighborhood community?</h2>
+<p class="text-xl mb-12 opacity-90 max-w-2xl font-medium">Download TaskSnap today and start earning or getting things done in minutes.</p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="bg-white text-[#FF8A00] px-10 py-5 rounded-md font-extrabold text-xl hover:bg-surface transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">ios</span>
+                            App Store
+                        </button>
+<button class="bg-on-surface text-white px-10 py-5 rounded-md font-extrabold text-xl hover:opacity-90 transition-all flex items-center gap-3">
+<span class="material-symbols-outlined">play_store_installed</span>
+                            Google Play
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-stone-200/20 bg-stone-50 dark:bg-stone-900 font-['Manrope'] text-sm leading-relaxed">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto px-8 py-12">
+<div class="space-y-6">
+<div class="text-xl font-bold text-stone-900 dark:text-stone-100">TaskSnap</div>
+<p class="text-stone-500 dark:text-stone-400">Making local neighborhood help accessible and rewarding for everyone.</p>
+<div class="flex gap-4">
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Instagram</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Twitter</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">LinkedIn</a>
+</div>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest text-xs">Company</h4>
+<ul class="space-y-4 text-stone-500 dark:text-stone-400">
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">About Us</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Careers</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Blog</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Press</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest text-xs">Legal</h4>
+<ul class="space-y-4 text-stone-500 dark:text-stone-400">
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Terms of Service</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-bold text-stone-900 dark:text-stone-100 uppercase tracking-widest text-xs">Community</h4>
+<ul class="space-y-4 text-stone-500 dark:text-stone-400">
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Support Center</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Safety Guidelines</a></li>
+<li><a class="hover:text-[#FF8A00] dark:hover:text-[#FFB347] transition-all" href="#">Neighbor Stories</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-8 border-t border-stone-200/20 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-stone-500 dark:text-stone-400">© 2024 TaskSnap. All rights reserved.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-tighter">System Status: All Services Operational</span>
+</div>
+</div>
+</footer>
+</body></html>

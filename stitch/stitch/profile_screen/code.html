@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1b1c1a",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "surface": "#fbf9f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#1b6d24",
+                    "on-primary-container": "#613100",
+                    "on-secondary-container": "#6f4600",
+                    "secondary": "#845400",
+                    "outline": "#8a7362",
+                    "primary-container": "#ff8a00",
+                    "surface-container-highest": "#e4e2df",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "surface-tint": "#914c00",
+                    "outline-variant": "#ddc1ae",
+                    "on-secondary-fixed": "#2a1800",
+                    "on-tertiary-container": "#00490e",
+                    "background": "#fbf9f6",
+                    "on-background": "#1b1c1a",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "on-surface-variant": "#564334",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#2f1500",
+                    "surface-variant": "#e4e2df",
+                    "on-tertiary-fixed": "#002204",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdcc4",
+                    "secondary-fixed": "#ffddb6",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbdad7",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "tertiary-container": "#6bbb68",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container": "#efeeeb",
+                    "error-container": "#ffdad6",
+                    "primary": "#914c00",
+                    "surface-container-high": "#eae8e5",
+                    "primary-fixed-dim": "#ffb77f",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-low": "#f5f3f0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#a3f69c",
+                    "surface-bright": "#fbf9f6",
+                    "secondary-container": "#feb246"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cloud-shadow {
+            shadow: 0 12px 30px 0 rgba(27, 28, 26, 0.06);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface antialiased min-h-screen">
+<!-- TopAppBar Navigation Shell -->
+<header class="fixed top-0 w-full z-50 bg-orange-50/80 dark:bg-zinc-950/80 backdrop-blur-xl flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-3">
+<button class="text-orange-600 dark:text-orange-400 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+</button>
+<h1 class="text-xl font-extrabold text-orange-600 dark:text-orange-400 font-['Plus_Jakarta_Sans'] tracking-tight">TaskSnap</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-orange-600 dark:text-orange-400 hover:opacity-80 transition-opacity scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-2xl mx-auto">
+<!-- Hero Profile Section -->
+<section class="flex flex-col items-center mb-12">
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-br from-primary-container to-secondary-container rounded-full blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
+<div class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container-lowest shadow-xl">
+<img class="w-full h-full object-cover" data-alt="portrait of a confident young man with a warm smile, professional lighting, outdoor city background soft bokeh" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0sJi-fcm4448eHmocangKp79jEgg_eiLH4f-c4jHvkmia6v4_cc38ClIT33VRdViV3UqoWCwGeym87Y_-rP2ixSlLeI5GI9LSWhE1VQM4N6M80JPpqfMtcO30khwvgDvNjpAUd6b3sjcd4KxQ4t8b568I-d9o52G9z4EEGItNz5YLn2R23Cs8L1jdVtoaZjefiqakkJWw2Oa-bTrtKPEsLucSFP12UXaDygaDa_34_OxLBc-D_EGcbM8-aeooFH4L7mi4_gvf5rQ"/>
+</div>
+<button class="absolute bottom-0 right-0 bg-primary-container text-white p-2 rounded-full shadow-lg border-2 border-surface transition-transform active:scale-90">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="mt-6 text-center">
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-on-surface">Aarav Sharma</h2>
+<p class="text-on-surface-variant font-medium mt-1">+91 98765 43210</p>
+</div>
+</section>
+<!-- Stats Grid (Bento Style) -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_12px_30px_0_rgba(27,28,26,0.06)] border border-surface-container-highest/10">
+<span class="text-on-surface-variant text-sm font-label uppercase tracking-widest block mb-1">Total Earned</span>
+<span class="text-tertiary text-2xl font-headline font-bold">₹24,500</span>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg shadow-[0_12px_30px_0_rgba(27,28,26,0.06)] border border-surface-container-highest/10">
+<span class="text-on-surface-variant text-sm font-label uppercase tracking-widest block mb-1">Tasks Done</span>
+<span class="text-primary text-2xl font-headline font-bold">42</span>
+</div>
+</div>
+<!-- Options List -->
+<div class="space-y-4">
+<!-- Notifications -->
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-lg group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-lowest rounded-md shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+</div>
+<span class="font-semibold text-lg">Notifications</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Dark Mode Toggle -->
+<div class="w-full flex items-center justify-between p-5 bg-surface-container-low rounded-lg">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-lowest rounded-md shadow-sm">
+<span class="material-symbols-outlined text-primary" data-icon="dark_mode">dark_mode</span>
+</div>
+<span class="font-semibold text-lg">Dark Mode</span>
+</div>
+<div class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary-container"></div>
+</div>
+</div>
+<!-- Portfolio -->
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-lg group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-lowest rounded-md shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="folder_shared">folder_shared</span>
+</div>
+<span class="font-semibold text-lg">Portfolio</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Help & Support -->
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-low hover:bg-surface-container-high transition-all duration-300 rounded-lg group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-lowest rounded-md shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary" data-icon="support_agent">support_agent</span>
+</div>
+<span class="font-semibold text-lg">Help &amp; Support</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Logout -->
+<button class="w-full flex items-center justify-between p-5 bg-surface-container-low hover:bg-error-container/10 transition-all duration-300 rounded-lg group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-surface-container-lowest rounded-md shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-error" data-icon="logout">logout</span>
+</div>
+<span class="font-semibold text-lg text-error">Logout</span>
+</div>
+<span class="material-symbols-outlined text-error/30" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</main>
+<!-- BottomNavBar Navigation Shell -->
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[92%] z-50 bg-white/70 dark:bg-zinc-900/70 backdrop-blur-2xl rounded-[999px] border border-white/20 dark:border-zinc-800/20 shadow-[0_12px_30px_0_rgba(0,0,0,0.06)] flex justify-around items-center px-2 py-2">
+<!-- Home -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="home_max">home_max</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Home</span>
+</a>
+<!-- Task -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Task</span>
+</a>
+<!-- History -->
+<a class="flex flex-col items-center justify-center text-zinc-400 dark:text-zinc-500 p-3 hover:bg-orange-50 dark:hover:bg-zinc-800/50 rounded-full scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="history">history</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">History</span>
+</a>
+<!-- Profile (Active) -->
+<a class="flex flex-col items-center justify-center bg-gradient-to-br from-orange-500 to-orange-300 text-white rounded-full p-3 shadow-lg shadow-orange-500/20 scale-98 transition-all duration-300 ease-out" href="#">
+<span class="material-symbols-outlined" data-icon="person" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[11px] font-['Manrope'] font-semibold tracking-wide">Profile</span>
+</a>
+</nav>
+</body></html>

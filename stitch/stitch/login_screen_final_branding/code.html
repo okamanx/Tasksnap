@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface": "#1b1c1a",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "surface": "#fbf9f6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#1b6d24",
+                    "on-primary-container": "#613100",
+                    "on-secondary-container": "#6f4600",
+                    "secondary": "#845400",
+                    "outline": "#8a7362",
+                    "primary-container": "#ff8a00",
+                    "surface-container-highest": "#e4e2df",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "surface-tint": "#914c00",
+                    "outline-variant": "#ddc1ae",
+                    "on-secondary-fixed": "#2a1800",
+                    "on-tertiary-container": "#00490e",
+                    "background": "#fbf9f6",
+                    "on-background": "#1b1c1a",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "on-surface-variant": "#564334",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#2f1500",
+                    "surface-variant": "#e4e2df",
+                    "on-tertiary-fixed": "#002204",
+                    "on-error-container": "#93000a",
+                    "primary-fixed": "#ffdcc4",
+                    "secondary-fixed": "#ffddb6",
+                    "inverse-on-surface": "#f2f0ed",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#dbdad7",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "tertiary-container": "#6bbb68",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container": "#efeeeb",
+                    "error-container": "#ffdad6",
+                    "primary": "#914c00",
+                    "surface-container-high": "#eae8e5",
+                    "primary-fixed-dim": "#ffb77f",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-low": "#f5f3f0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#a3f69c",
+                    "surface-bright": "#fbf9f6",
+                    "secondary-container": "#feb246"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #fbf9f6;
+        }
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .sunlight-gradient {
+            background: linear-gradient(135deg, #ff8a00 0%, #feb246 100%);
+        }
+        .cloud-shadow {
+            box-shadow: 0 12px 30px 0 rgba(27, 28, 26, 0.06);
+        }
+        .glass-effect {
+            backdrop-filter: blur(24px);
+            background: rgba(251, 249, 246, 0.7);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col items-center justify-center p-6">
+<!-- Login Container -->
+<main class="w-full max-w-md flex flex-col items-center space-y-12">
+<!-- Branding Section -->
+<header class="text-center space-y-6">
+<div class="relative inline-block">
+<!-- Abstract Logo Shape -->
+<div class="w-20 h-20 sunlight-gradient rounded-xl rotate-12 flex items-center justify-center shadow-lg shadow-primary-container/20 overflow-hidden">
+<span class="material-symbols-outlined text-white text-4xl -rotate-12" data-icon="bolt" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+<!-- Asymmetric Decorative Element -->
+<div class="absolute -top-2 -right-2 w-8 h-8 bg-tertiary-container rounded-full flex items-center justify-center border-4 border-surface">
+<span class="material-symbols-outlined text-white text-sm" data-icon="check" style="font-variation-settings: 'FILL' 0; font-weight: 700;">check</span>
+</div>
+</div>
+<div class="space-y-2">
+<img alt="TaskSnap Logo" class="h-12 w-auto mx-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugsD_tZPaiIsuHsPca-T5fYeXlixojR1vKFh3Nrda4H6mBZl8MdlWwXg6tVtCJGPzS2-8q8JPR1d4lw2nd8aZ9Hv_8T5ZauC0CNgKtf3fpsAztIIwJCG_w1liBLUUB9ia_pHxl0iNrKRjBP2bbEQ2hs9acDQ-vBWWOe0y4oVRafHolHHShsScnmuVQCgSsu7iPfP4HZTe77-mwthCSVuR_tcP79Al0x4cyKQHVHhi1AxXzekWNTQbH24QyWqB-qjQJAy06xz2c1"/>
+<p class="text-on-surface-variant font-medium text-lg max-w-[280px] mx-auto leading-snug">
+                    Earn instantly by completing nearby tasks
+                </p>
+</div>
+</header>
+<!-- Form Section -->
+<section class="w-full space-y-8">
+<div class="space-y-4">
+<!-- Phone Input Field -->
+<div class="relative group">
+<label class="block text-xs font-bold uppercase tracking-widest text-on-surface-variant mb-2 ml-4" for="phone">Phone Number</label>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1 border border-transparent focus-within:border-outline-variant/30 transition-all duration-300">
+<div class="flex items-center px-4 space-x-2 border-r border-outline-variant/20">
+<img alt="USA Flag" class="w-6 h-4 rounded-sm object-cover" data-alt="close up of a clean american flag icon for a phone country code selector" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFKWwl2uf6jicVKBedv52pQPh4cq2XRley-l9DZAhoJ4uADz3Ritrdw7sEBJOEN1EnCk8qp1uj5q94kldZ65Qz30VslH6m_E61wuVhWikLr84mJ0bqZZGJNDF8kHDVNFYC0ZpXziKxAqdqmzkMS2HFYy0vxKl9tTcTqPh-7-Fonjz4rELZyv0uVLuTyhh53DlC-Ci5k5NsX4CfjF80wRS4D-jVdhPa5J9EOi-DSP39yA_cKBwtz7L2Bfpet9sRatAHTRe_pGU0C9g"/>
+<span class="text-on-surface font-semibold text-sm">+1</span>
+</div>
+<input class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-outline/50 font-medium py-3 px-4" id="phone" placeholder="Enter your mobile number" type="tel"/>
+</div>
+</div>
+<!-- OTP Hint / Helper -->
+<p class="text-xs text-on-surface-variant/70 text-center px-4 italic">
+                    We'll send a 6-digit verification code to this number.
+                </p>
+</div>
+<!-- Action Button -->
+<button class="w-full sunlight-gradient text-on-primary font-bold py-5 rounded-lg cloud-shadow hover:scale-[0.98] active:scale-95 transition-all duration-300 text-lg flex items-center justify-center space-x-2">
+<span>Continue</span>
+<span class="material-symbols-outlined text-xl" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</section>
+<!-- Visual Anchor / Footer -->
+<footer class="pt-8 w-full">
+<div class="relative h-64 w-full rounded-lg overflow-hidden group">
+<img alt="Local Tasker" class="w-full h-full object-cover grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700" data-alt="editorial style photo of a friendly young man helping a neighbor carry groceries in a sunny suburban neighborhood" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkaCVnzHkyPzN8SToTR1W8qQEn5FuXlPyURyvFJotYPHI2VcC6lq78r2BOuFlHVJGgKW82ZvRcwJ_BSgHCx6a-0Zzv4wX9EZoStQSAPjIinomT8b2Boiz4SJ3e37xFMEJvciGwNsqf_xFkRL5-KT51AeQ9TNNix98WTV_72kaUK4IgdnotkB27Uo5q-Kx99lGt_9Ti1twsQy6hn8Cbo0MbZvM1WWxXfTwfyV3hWvMFcba4QBkLsU5sqI9vIwrxwE6kO7GYejCetRs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<!-- Floating Info Chip -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 glass-effect px-4 py-2 rounded-full border border-surface-container-highest/40 flex items-center space-x-3 cloud-shadow">
+<div class="flex -space-x-2">
+<img alt="user" class="w-6 h-6 rounded-full border-2 border-surface" data-alt="professional portrait of a smiling woman outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_lFyl0t-xyDUvD32uiVhoeLs_WIpFIbsETzDAvX5IRRD1NofP75KH5AlGLI2lFuJWIt1GDfRmlufK1CpZiTno5qj4r2d0zoYkGKXZRUp0VRNxmUyPU3cyQaASQddOI-N8tMSzhtxyW6Ae3a8d-1MTAButl_RrLnarsMCn2ABIm4izSqIdyyGcc1olzaOi2YEw9z8yOrDYplbXXCPCqEzdfNlk5EPT8e5cQGKJyJSeME3n0NGPwBz8bIRvjAJlQwFu02ScRrz15Ok"/>
+<img alt="user" class="w-6 h-6 rounded-full border-2 border-surface" data-alt="candid close-up of a man laughing outdoors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5v72Oy5HFG9Uwvz_s6g8LHccMYdiOCZbO7gTfCqckIVNQb7_wm_KrcO0pcm2TOFI-yMor-H0EWKvHJaBnOHQ9t--dBAQET_tonAhPeA8fH8q6x9Bs8_9GjG4GapcH8qqzdFGMv0LCSFFk41Uu7ltiXNnKUMoU9rZKhcnK4qOY-zLzLyC-IOOOoCbT3KPJYg_vmXHmSUjkGvjEM7tM73KZr1wPX_kWuLJ84-mFtLv2TOzih2Js_8-6O8JsMWpSibamEUFlpWQKszI"/>
+<img alt="user" class="w-6 h-6 rounded-full border-2 border-surface" data-alt="headshot of a man with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvDfegZEbv2rbU0sPFDxwbnxyeOslA1-xEWh6f7DO9Klcw9Fhff_HmDFoME0kUkmPO9IzO15P2UaKqacxyfWqHqwqT9eUpWJ9kWwJ5fYPYcGohU_HuvNWzpH8xe6JZLSHdIkjrwRT5VuRhbTE99qe6cxwLUgOnHX2JPnyccVFxAO9GrlIPGiAKfDImSXHG3gyk7_g9u9sSHaKnl-G0G3ND8e65UZISsc7zbX9YjPKITBDZX24i6-J04K9rBFSwQfHyJAzVPMgKhCE"/>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-surface-variant">1,200+ taskers active today</span>
+</div>
+</div>
+<div class="mt-8 flex justify-center space-x-6">
+<a class="text-xs font-semibold text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-semibold text-outline hover:text-primary transition-colors" href="#">Terms of Service</a>
+</div>
+</footer>
+</main>
+<!-- Background Decoration (Asymmetric & Editorial) -->
+<div class="fixed -top-24 -left-24 w-96 h-96 bg-primary-container/5 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+<div class="fixed top-1/2 -right-48 w-[500px] h-[500px] bg-secondary-container/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
+<div class="fixed -bottom-24 left-1/4 w-80 h-80 bg-tertiary-container/5 rounded-full blur-[80px] pointer-events-none -z-10"></div>
+</body></html>

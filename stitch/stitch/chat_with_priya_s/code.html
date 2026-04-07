@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskSnap Chat - Priya S.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#88d982",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f2f0ed",
+                    "surface-tint": "#914c00",
+                    "on-tertiary-fixed": "#002204",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "outline": "#8a7362",
+                    "surface-container-low": "#f5f3f0",
+                    "surface-container-highest": "#e4e2df",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "surface-dim": "#dbdad7",
+                    "surface": "#fbf9f6",
+                    "tertiary-fixed": "#a3f69c",
+                    "tertiary": "#1b6d24",
+                    "on-surface-variant": "#564334",
+                    "outline-variant": "#ddc1ae",
+                    "on-primary-fixed": "#2f1500",
+                    "on-surface": "#1b1c1a",
+                    "error": "#ba1a1a",
+                    "surface-container": "#efeeeb",
+                    "surface-variant": "#e4e2df",
+                    "surface-bright": "#fbf9f6",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fbf9f6",
+                    "on-tertiary-container": "#00490e",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-primary-container": "#613100",
+                    "on-error-container": "#93000a",
+                    "primary": "#914c00",
+                    "tertiary-container": "#6bbb68",
+                    "on-secondary-fixed": "#2a1800",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-high": "#eae8e5",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "secondary": "#845400",
+                    "on-secondary-container": "#6f4600",
+                    "secondary-container": "#feb246",
+                    "secondary-fixed": "#ffddb6",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#ff8a00",
+                    "on-background": "#1b1c1a",
+                    "primary-fixed-dim": "#ffb77f",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffdcc4",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chat-container {
+            height: calc(100vh - 144px);
+        }
+        .glass-nav {
+            background: rgba(251, 249, 246, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container/30">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 glass-nav shadow-[0_12px_30px_0_rgba(0,0,0,0.06)] px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<button class="p-2 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined text-on-surface">arrow_back</span>
+</button>
+</div>
+<div class="flex flex-col items-center">
+<h1 class="font-headline font-bold tracking-tight text-on-surface text-base leading-tight">Priya S.</h1>
+<div class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 bg-tertiary rounded-full"></span>
+<span class="text-[10px] font-bold text-tertiary uppercase tracking-wider">Online</span>
+</div>
+</div>
+<div class="flex items-center">
+<button class="p-2 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-full transition-colors active:scale-90">
+<span class="material-symbols-outlined text-on-surface" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Main Chat Canvas -->
+<main class="pt-20 pb-28 px-4 md:px-8 max-w-3xl mx-auto min-h-screen">
+<div class="flex flex-col gap-6">
+<!-- Date Separator -->
+<div class="flex justify-center my-4">
+<span class="px-4 py-1 bg-surface-container-low text-on-surface-variant text-[11px] font-bold tracking-widest uppercase rounded-full">Today</span>
+</div>
+<!-- Incoming Message (Tasker) -->
+<div class="flex items-end gap-3 group">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 shadow-sm border-2 border-surface-container-highest">
+<img alt="Priya S." class="w-full h-full object-cover" data-alt="portrait of a smiling professional woman with warm lighting and a soft blurred background, looking friendly and capable" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBizGzaw-FBdfWQeaNsOdsiWbUHtClhPOm0QRz-_Q4DXYOuftdwwjGb0xB7VswHuQZNHx9XCiAN1W_XGRoflPZJd4o0vo-IumjxJI2WBK1lvLK3RXCg-Jt8pYXdX01nAR1gtDilpG4Yx3MYAFkRToLFpwpYivjynP2j8OM6yI5OlSTDZe3_y6kTauV6L5u68lvrGe2NyIhETPvXFAaXvFsgBu5jBu-IOtVRHpZP-NQ23ChVwySO1GXUFUKiOMpl6VXRSbT3mBEOhBk"/>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%] md:max-w-[70%]">
+<div class="bg-surface-container-lowest text-on-surface p-4 rounded-[2rem] rounded-bl-none shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest/30">
+<p class="text-sm leading-relaxed">Hi Alex! I've just seen your request for the furniture assembly. I have all the tools required and can be there by 2 PM. Does that work for you?</p>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant ml-2">10:14 AM</span>
+</div>
+</div>
+<!-- Outgoing Message (Poster) -->
+<div class="flex flex-col items-end gap-1 group">
+<div class="max-w-[80%] md:max-w-[70%] bg-gradient-to-br from-primary-container to-secondary-container text-white p-4 rounded-[2rem] rounded-br-none shadow-[0_8px_20px_rgba(255,138,0,0.15)]">
+<p class="text-sm leading-relaxed">That sounds perfect, Priya. I have two large bookshelves and a desk. Do you think it'll take more than 2 hours?</p>
+</div>
+<div class="flex items-center gap-1.5 mr-2">
+<span class="text-[10px] font-medium text-on-surface-variant">10:16 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Incoming Message -->
+<div class="flex items-end gap-3 group">
+<div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 shadow-sm border-2 border-surface-container-highest">
+<img alt="Priya S." class="w-full h-full object-cover" data-alt="close up of a friendly professional woman with a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApZ0VIQ35xSYbIUKs-3t3eVOy4xbI6DOddLbCHjBmXlnAzgVhv_jy1pwOJpwRLNmLdL39DTu_AuRSGrgRKq5P_OcYqDeuFwBxH9jEe1jR2FowF1w15FOcP5ze0YtiX6w_s7QtS_c61TyOYsKnOp78LTcrZM54R9cjz7-Yv6uXu8CjVNUeqzkpGjKOZcs-2d9-Tr0vTOYsNj8tHMYy_EnPLximgvS6A-2dLYnkjSXWLeMLGV-QanRYGvQ0LDh38beCs4LQEtkJPqmw"/>
+</div>
+<div class="flex flex-col gap-1 max-w-[80%] md:max-w-[70%]">
+<div class="bg-surface-container-lowest text-on-surface p-4 rounded-[2rem] rounded-bl-none shadow-[0_4px_12px_rgba(0,0,0,0.03)] border border-surface-container-highest/30">
+<p class="text-sm leading-relaxed">Based on those items, it usually takes about 2.5 hours to ensure everything is perfectly level and secure. I'll make sure to bring extra mounting brackets just in case!</p>
+</div>
+<span class="text-[10px] font-medium text-on-surface-variant ml-2">10:18 AM</span>
+</div>
+</div>
+<!-- Image Message (Outgoing) -->
+<div class="flex flex-col items-end gap-1">
+<div class="max-w-[60%] rounded-lg overflow-hidden shadow-lg border-4 border-surface-container-lowest active:scale-[0.98] transition-transform">
+<img alt="Assembly Area" class="w-full aspect-square object-cover" data-alt="A clean modern living room space with boxes of unassembled furniture and tools neatly laid out on a light wood floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkg5dWGNCBbCsVGS6mJxEM-BFKr9rkWT1v-zHDBGclLU3GDnR_eC9rfT6Mnxa88ew5Hn6oNZrSAy_CCV0v94FOJDT-vrQC6utZba8xYCt_9FaDjaTiIPRljumK3o7HgbZI9uD74kv9dHtgCvZMBBEObVqTH_W-TX0AjHNTNYub9ivYJq9wjF9AVrcCvhShA7eNDG_nRV9QkQFzr6KpsOnF8Y2tAG4278Y3A91PqWn0LA9EAKMvdK5BVGu1MwEyqqxsaauFlIq2v60"/>
+</div>
+<div class="max-w-[80%] md:max-w-[70%] bg-gradient-to-br from-primary-container to-secondary-container text-white p-4 rounded-[2rem] rounded-tr-none mt-2 shadow-[0_8px_20px_rgba(255,138,0,0.15)]">
+<p class="text-sm leading-relaxed">Great. Here is the space where they'll go. See you at 2!</p>
+</div>
+<div class="flex items-center gap-1.5 mr-2 mt-1">
+<span class="text-[10px] font-medium text-on-surface-variant">10:20 AM</span>
+<span class="material-symbols-outlined text-[14px] text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Input Area -->
+<footer class="fixed bottom-0 left-0 right-0 z-50 px-4 pb-8 pt-4 glass-nav">
+<div class="max-w-3xl mx-auto flex items-center gap-3">
+<button class="w-12 h-12 flex items-center justify-center bg-surface-container-high rounded-full text-on-surface-variant hover:bg-surface-container-highest transition-colors active:scale-90">
+<span class="material-symbols-outlined">add</span>
+</button>
+<div class="flex-1 relative flex items-center">
+<input class="w-full bg-surface-container-low border-none rounded-full px-6 py-3.5 text-sm placeholder:text-on-surface-variant/50 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Type a message..." type="text"/>
+<button class="absolute right-2 p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">mood</span>
+</button>
+</div>
+<button class="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-primary-container to-secondary-container rounded-full text-white shadow-lg shadow-primary-container/20 hover:scale-105 active:scale-95 transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</footer>
+<!-- Task Context Overlay (Subtle) -->
+<div class="fixed top-16 left-0 right-0 z-40 px-6 py-2 bg-surface-container-low/90 backdrop-blur-sm border-b border-surface-container-highest/20 flex items-center justify-between">
+<div class="flex items-center gap-2 overflow-hidden">
+<span class="material-symbols-outlined text-primary text-sm">handyman</span>
+<span class="text-xs font-bold text-on-surface-variant truncate">Furniture Assembly: 2 Bookshelves &amp; Desk</span>
+</div>
+<div class="flex items-center gap-1 flex-shrink-0">
+<span class="text-xs font-bold text-tertiary">$65.00</span>
+</div>
+</div>
+</body></html>

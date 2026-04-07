@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Messages - TaskSnap</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed-dim": "#88d982",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f2f0ed",
+                    "surface-tint": "#914c00",
+                    "on-tertiary-fixed": "#002204",
+                    "on-primary-fixed-variant": "#6f3900",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312f",
+                    "outline": "#8a7362",
+                    "surface-container-low": "#f5f3f0",
+                    "surface-container-highest": "#e4e2df",
+                    "on-secondary-fixed-variant": "#643f00",
+                    "surface-dim": "#dbdad7",
+                    "surface": "#fbf9f6",
+                    "tertiary-fixed": "#a3f69c",
+                    "tertiary": "#1b6d24",
+                    "on-surface-variant": "#564334",
+                    "outline-variant": "#ddc1ae",
+                    "on-primary-fixed": "#2f1500",
+                    "on-surface": "#1b1c1a",
+                    "error": "#ba1a1a",
+                    "surface-container": "#efeeeb",
+                    "surface-variant": "#e4e2df",
+                    "surface-bright": "#fbf9f6",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#fbf9f6",
+                    "on-tertiary-container": "#00490e",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-primary-container": "#613100",
+                    "on-error-container": "#93000a",
+                    "primary": "#914c00",
+                    "tertiary-container": "#6bbb68",
+                    "on-secondary-fixed": "#2a1800",
+                    "inverse-primary": "#ffb77f",
+                    "surface-container-high": "#eae8e5",
+                    "secondary-fixed-dim": "#ffb95a",
+                    "secondary": "#845400",
+                    "on-secondary-container": "#6f4600",
+                    "secondary-container": "#feb246",
+                    "secondary-fixed": "#ffddb6",
+                    "error-container": "#ffdad6",
+                    "primary-container": "#ff8a00",
+                    "on-background": "#1b1c1a",
+                    "primary-fixed-dim": "#ffb77f",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffdcc4",
+                    "on-primary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(251, 249, 246, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-xl shadow-[0_12px_30px_0_rgba(0,0,0,0.06)] flex items-center justify-between px-6 h-16 w-full">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="Alex Rivera" class="w-full h-full object-cover" data-alt="Professional headshot of a friendly man with short dark hair and a neat beard in soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOV0sD6ggEY06Y1cF_dVHWq2VInknWrIYHphQVxBRSnhHHUYFFx3Ov0OedGdAA1_U8laADCIYYKAuuz6OeLwzkOnQ1EIE7UPtvRkK4II4buSfqspRMAC2eoTltdXcLvhhLDGE-OvVjeRDQKYC85lCsZUofwsNo8_mY51-rgfVEb6pJocuX14gQkYyPZShJkHu_i23HI8t9cNSvcToycStu_cqIflhhHioT7hpLiZW7s6O0sHXgIncxi7FU7SyY_kQ0bx-Xiiggqqw"/>
+</div>
+<span class="text-xl font-bold text-stone-900 dark:text-stone-50 font-headline tracking-tight">Alex Rivera</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-stone-500 dark:text-stone-400">search</span>
+</button>
+<button class="p-2 rounded-full hover:bg-stone-200/50 dark:hover:bg-stone-800/50 transition-colors scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-stone-500 dark:text-stone-400">more_vert</span>
+</button>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-2xl mx-auto">
+<!-- Section Header -->
+<div class="mb-8 text-center md:text-left">
+<h1 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface mb-2">Messages</h1>
+<p class="text-on-surface-variant font-medium">Keep track of your ongoing task updates.</p>
+</div>
+<!-- Chat List - Bento Style/Asymmetric Rows -->
+<div class="space-y-4">
+<!-- Chat Item: Unread -->
+<div class="group relative bg-surface-container-lowest rounded-lg p-5 shadow-[0_12px_30px_0_rgba(0,0,0,0.04)] hover:scale-[0.99] transition-all cursor-pointer">
+<div class="flex items-start gap-4">
+<div class="relative">
+<div class="w-14 h-14 rounded-full overflow-hidden ring-2 ring-primary-container ring-offset-2">
+<img alt="Priya S." class="w-full h-full object-cover" data-alt="Close up portrait of a smiling woman with dark curly hair against a soft sunlit garden background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWP_5TFCX368e6r1NyQeCpgREGkTw9SN7BC7pA9D1ikHXuGp_6mh4qJzOsZ-MXGXfd9c5p7YaIWIajdOkCQfFvKEQJB9ilh8iyzxbqoeOsa3-lNPRLoxURjJQ986z3arhpgJ1Eed5amtF0-vS8gE2kq5AP4HJNY-lZJqkVpD_22FtyzUiShIFPR68Bok1H_qA_M0BkABkYpPF1mq1t25X46SUFLqhQZWTbKhWzw_Q9eBSIrgm55tlnClmAo-VPx9AWAdY1D8wCKhA"/>
+</div>
+<div class="absolute bottom-0 right-0 w-4 h-4 bg-tertiary-container rounded-full border-2 border-surface-container-lowest"></div>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Priya S.</h3>
+<span class="text-xs font-bold text-primary">12:45 PM</span>
+</div>
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-secondary-fixed text-[10px] font-bold text-on-secondary-container mb-2 tracking-wide uppercase">
+                            Regarding: Balcony Garden
+                        </div>
+<p class="text-on-surface font-semibold truncate leading-tight">The hydrangeas look perfect! Should I add more mulch tomorrow?</p>
+</div>
+<div class="flex flex-col items-end justify-center h-full">
+<div class="w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 to-orange-400 flex items-center justify-center shadow-lg shadow-orange-500/20">
+<span class="text-[10px] font-bold text-white">2</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Item: Read -->
+<div class="group relative bg-surface-container-low rounded-lg p-5 hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-full overflow-hidden grayscale-[0.3]">
+<img alt="Rahul M." class="w-full h-full object-cover" data-alt="Modern portrait of a young man with a slight smile wearing a casual denim shirt in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgnkf_nlBK4LV55G7KheBT38uiCbFm7lyf1ohUXss0Yqm1_EH_Ty5nRiXcPD3MCrsEQqVKi5zbb8X6HH7tY83F6qVCHhuv4nm4u6o_HZ2Q1SpMxYy3FJcFq3bNkrf76AjHrunGt8eM0o4qtWxmg1Nt_e-9cw68PR7sVCYwL1nm0eR3MCP1Iz47scjc4W7p1EW32XdlHHbRuF62Kx5UAhYNvGESbYVkcd2I-bnjxAhumvs8NKpWmU3L_F9oPEsifK6sZ0--c9l0Gyg"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Rahul M.</h3>
+<span class="text-xs font-medium text-on-surface-variant">Yesterday</span>
+</div>
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-highest text-[10px] font-bold text-on-surface-variant mb-2 tracking-wide uppercase">
+                            Regarding: Furniture Assembly
+                        </div>
+<p class="text-on-surface-variant font-medium truncate leading-tight">I'll be there around 10 AM with the power tools.</p>
+</div>
+<div class="flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary text-sm" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Chat Item: Read -->
+<div class="group relative bg-surface-container-low rounded-lg p-5 hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-full overflow-hidden">
+<img alt="Elena K." class="w-full h-full object-cover" data-alt="Candid portrait of a young woman with blonde hair laughing outdoors during golden hour" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlzeLFY8wxqKY9qRsioKlWcZlv06Xi6l_CG8z6YHDDkgG58r2mS1HAdfS0BQJ16M_2Yyk6qSt0UZ427tPR4tsHezcTGOAt7EEDww610cmzHLSqXzSAejjIi4MgVx5eak351jBpDoarKS79vCmCnW1IR-8nsmbTWm4Ksx34xJlZQ1EVDiOF9k82gmXbMF42-zYvWlvbfIEjUrD3jVWbQyuOzzDlBNzJ7uHkDpQ2-JCi6XnfDvwwb6192dxek48AhSfRJHRVzW5P9cY"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">Elena K.</h3>
+<span class="text-xs font-medium text-on-surface-variant">Tue</span>
+</div>
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-highest text-[10px] font-bold text-on-surface-variant mb-2 tracking-wide uppercase">
+                            Regarding: Pet Sitting
+                        </div>
+<p class="text-on-surface-variant font-medium truncate leading-tight">Coco had his dinner and is now sleeping soundly.</p>
+</div>
+</div>
+</div>
+<!-- Chat Item: Read -->
+<div class="group relative bg-surface-container-low rounded-lg p-5 hover:bg-surface-container-high transition-all cursor-pointer">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-full overflow-hidden">
+<img alt="James L." class="w-full h-full object-cover" data-alt="Middle-aged man with glasses and a warm smile in a brightly lit office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9m0PEeecwUW-yLuQvMtjHZr9rE61RhwRhawEdrVWCppd8bUZZOWEDt5XBlVXNtZDTi0Qj9EQuSG8MTJIlt86O0lv8vUY-FXmqyLTvQ8pMqIebhsk9WMw1jRt9SMWgKBUu_kE4hGlORNY90BDeaFJNYu3yYMHwsuSZ2iRSIk-cjEyDq3s5PLpT_awkuOTzu4vcAJrRj_1y0hN8Yj3NtrJDLG02LhuAXrC0GoeB0qJhyeM03t_xCKlZ1qdQ1ef0qX5udaOWZNhR9JQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start mb-1">
+<h3 class="font-headline font-bold text-lg text-on-surface">James L.</h3>
+<span class="text-xs font-medium text-on-surface-variant">Oct 12</span>
+</div>
+<div class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container-highest text-[10px] font-bold text-on-surface-variant mb-2 tracking-wide uppercase">
+                            Regarding: Kitchen Plumbing
+                        </div>
+<p class="text-on-surface-variant font-medium truncate leading-tight">Thanks for the quick payment! Let me know if you need anything else.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-6 left-0 right-0 z-50 flex justify-around items-center px-4 h-16 mx-auto max-w-md bg-stone-50/80 dark:bg-stone-900/80 backdrop-blur-2xl rounded-full shadow-[0_12px_30px_0_rgba(0,0,0,0.08)] border border-stone-200/20 dark:border-stone-700/20">
+<button class="text-stone-400 dark:text-stone-500 p-3 hover:text-orange-400 transition-all scale-98 active:scale-95 duration-200">
+<span class="material-symbols-outlined">explore</span>
+</button>
+<button class="text-stone-400 dark:text-stone-500 p-3 hover:text-orange-400 transition-all scale-98 active:scale-95 duration-200">
+<span class="material-symbols-outlined">assignment</span>
+</button>
+<button class="bg-gradient-to-br from-orange-500 to-orange-400 text-white rounded-full p-3 shadow-lg shadow-orange-500/20 scale-98 active:scale-95 transition-all duration-200">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+<button class="text-stone-400 dark:text-stone-500 p-3 hover:text-orange-400 transition-all scale-98 active:scale-95 duration-200">
+<span class="material-symbols-outlined">payments</span>
+</button>
+<button class="text-stone-400 dark:text-stone-500 p-3 hover:text-orange-400 transition-all scale-98 active:scale-95 duration-200">
+<span class="material-symbols-outlined">person</span>
+</button>
+</nav>
+</body></html>
