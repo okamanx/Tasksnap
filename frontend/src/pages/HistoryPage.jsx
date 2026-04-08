@@ -5,19 +5,12 @@ import { useAuth } from '../contexts/AuthContext';
 import TopBar from '../components/TopBar';
 import BottomNav from '../components/BottomNav';
 
-const MOCK_RECEIVED = [
-  { id: '1', title: 'Premium Pet Grooming', completed_at: '2 days ago', price: 1250, rating: 5.0, client: 'Anita Roy', image: '🐶' },
-  { id: '2', title: 'Deep Kitchen Cleaning', completed_at: 'last week', price: 800, rating: 4.8, client: 'Rahul Sharma', image: '🍳' },
-  { id: '3', title: 'Plant Care & Watering', completed_at: '10 days ago', price: 350, rating: 5.0, client: 'Mira Patel', image: '🌿' },
-];
-const MOCK_POSTED = [];
-
 export default function HistoryPage() {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [tab, setTab] = useState('received');
-  const [received, setReceived] = useState(MOCK_RECEIVED);
-  const [posted, setPosted] = useState(MOCK_POSTED);
+  const [received, setReceived] = useState([]);
+  const [posted, setPosted] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -32,13 +25,27 @@ export default function HistoryPage() {
         supabase.from('tasks').select('*').eq('accepted_by', user?.id).in('status', ['completed']),
         supabase.from('tasks').select('*').eq('created_by', user?.id),
       ]);
-      if (recRes.data?.length > 0) setReceived(recRes.data);
-      if (postRes.data?.length > 0) setPosted(postRes.data);
-    } catch { /* use mock */ }
+      if (recRes.data) setReceived(recRes.data.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)));
+      if (postRes.data) setPosted(postRes.data.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)));
+    } catch { /* suppress mock fallback */ }
     setLoading(false);
   }
 
   const items = tab === 'received' ? received : posted;
+
+  const getTaskStatus = (task) => {
+    if (task.status === 'completed') return { label: 'Completed', color: 'bg-green-500/20 text-green-500' };
+    if (task.status === 'in_progress') return { label: 'In Progress', color: 'bg-orange-500/20 text-orange-400' };
+    if (task.status === 'assigned') return { label: 'Assigned', color: 'bg-blue-500/20 text-blue-400' };
+    
+    // Check expiration (2 hours)
+    if (task.created_at) {
+      const ageMs = Date.now() - new Date(task.created_at).getTime();
+      if (ageMs > 2 * 60 * 60 * 1000) return { label: 'Expired', color: 'bg-red-500/20 text-red-500' };
+    }
+    
+    return { label: 'Active', color: 'bg-primary-container/20 text-primary' };
+  };
 
   return (
     <div className="min-h-dvh bg-background text-on-surface pb-32">
@@ -105,17 +112,17 @@ export default function HistoryPage() {
                       <h3 className="font-headline font-bold text-on-surface text-lg leading-tight group-hover:text-primary transition-colors">
                         {task.title}
                       </h3>
-                      <p className="text-on-surface-variant text-sm mt-1">
-                        Completed {task.completed_at || 'recently'}
+                      <p className="text-on-surface-variant text-[11px] mt-1 font-mono uppercase tracking-wider">
+                        {new Date(task.created_at || Date.now()).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
                       </p>
                     </div>
                   </div>
-                  <div className="flex flex-col items-end gap-1">
-                    <span className="text-tertiary font-bold text-xl tracking-tight">
+                  <div className="flex flex-col items-end gap-2">
+                    <span className="text-tertiary font-bold text-xl tracking-tight leading-none">
                       ₹{task.price?.toLocaleString('en-IN')}
                     </span>
-                    <span className="bg-tertiary-container/20 text-on-tertiary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider">
-                      Completed
+                    <span className={`${getTaskStatus(task).color} px-2.5 py-1 rounded-sm text-[9px] font-extrabold uppercase tracking-widest leading-none border border-current/20`}>
+                      {getTaskStatus(task).label}
                     </span>
                   </div>
                 </div>

@@ -37,15 +37,39 @@ export default function PostTaskPage() {
     setPreviews(files.map(f => URL.createObjectURL(f)));
   }
 
-  function useCurrentLocation() {
-    if (!navigator.geolocation) return;
+  async function useCurrentLocation() {
+    if (!navigator.geolocation) {
+      alert("Location access is unavailable. You may need to use HTTPS or 'localhost'.");
+      return;
+    }
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
-      pos => {
-        setForm(f => ({ ...f, lat: pos.coords.latitude, lng: pos.coords.longitude, address: `${pos.coords.latitude.toFixed(4)}, ${pos.coords.longitude.toFixed(4)}` }));
+      async (pos) => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        let address = `${lat.toFixed(4)}, ${lng.toFixed(4)}`;
+        
+        // Reverse geocoding via Mapbox
+        const MAPBOX_KEY = import.meta.env.VITE_MAPBOX_KEY;
+        if (MAPBOX_KEY) {
+          try {
+            const res = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${MAPBOX_KEY}`);
+            const data = await res.json();
+            if (data.features && data.features.length > 0) {
+              address = data.features[0].place_name;
+            }
+          } catch (e) {
+            console.error("Mapbox reverse geocoding failed", e);
+          }
+        }
+
+        setForm(f => ({ ...f, lat, lng, address }));
         setLocating(false);
       },
-      () => setLocating(false)
+      (err) => {
+        setLocating(false);
+        alert(`Location error: ${err.message}`);
+      },
+      { enableHighAccuracy: true }
     );
   }
 

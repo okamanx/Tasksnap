@@ -21,14 +21,43 @@ export default function MessagesPage() {
   async function fetchConvos() {
     if (!user) return;
     try {
-      const { data } = await supabase
-        .from('tasks')
-        .select('id, title, messages(message, created_at, sender_id)')
-        .or(`created_by.eq.${user.id},accepted_by.eq.${user.id}`)
-        .limit(20);
-      if (data?.length > 0) {
-        // merge into conversation format — simplified for demo
+      // 1. Get apps where I am the applicant
+      const { data: myApps } = await supabase.from('applications').select('*, tasks(title, created_by, profiles!tasks_created_by_fkey(name))').eq('applicant_id', user.id);
+      
+      // 2. Get my tasks, then get their apps
+      const { data: myTasks } = await supabase.from('tasks').select('id, title').eq('created_by', user.id);
+      const myTaskIds = myTasks?.map(t => t.id) || [];
+      const { data: receivedApps } = await supabase.from('applications').select('*, profiles!applications_applicant_id_fkey(name)').in('task_id', myTaskIds);
+
+      let merged = [];
+      
+      if (myApps) {
+        myApps.forEach(a => merged.push({
+          room_id: `${a.task_id}_${a.applicant_id}`,
+          task_id: a.task_id,
+          task_title: a.tasks.title,
+          name: a.tasks.profiles?.name || 'Tasker',
+          link: `/chat/${a.task_id}/${a.applicant_id}`
+        }));
       }
+
+      if (receivedApps && myTasks) {
+        receivedApps.forEach(a => {
+          const t = myTasks.find(x => x.id === a.task_id);
+          merged.push({
+            room_id: `${a.task_id}_${a.applicant_id}`,
+            task_id: a.task_id,
+            task_title: t?.title,
+            name: a.profiles?.name || 'Applicant',
+            link: `/chat/${a.task_id}/${a.applicant_id}`
+          });
+        });
+      }
+
+      // dedup
+      merged = merged.filter((v,i,a)=>a.findIndex(v2=>(v2.room_id===v.room_id))===i);
+
+      if (merged.length > 0) setConvos(merged);
     } catch { /* use mock */ }
   }
 
@@ -61,10 +90,10 @@ export default function MessagesPage() {
         </div>
 
         <div className="space-y-3">
-          {convos.map(c => (
+          {convos.map((c, i) => (
             <div
-              key={c.task_id}
-              onClick={() => navigate(`/chat/${c.task_id}`)}
+              key={c.room_id || i}
+              onClick={() => navigate(c.link || `/chat/${c.task_id}`)}
               className={`group relative rounded-lg p-5 card-shadow hover:scale-[0.99] transition-all cursor-pointer ${
                 c.unread > 0 ? 'bg-surface-container-lowest' : 'bg-surface-container-low hover:bg-surface-container-high'
               }`}

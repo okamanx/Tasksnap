@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { supabase } from '../lib/supabase';
+import { getCurrentLocation } from '../lib/location';
 
 export default function LoginPage() {
   const { signIn } = useAuth();
@@ -19,6 +21,15 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await signIn({ phone, password });
+      
+      // Request location after successful login
+      try {
+        const coords = await getCurrentLocation();
+        await supabase.auth.updateUser({ data: { lat: coords.lat, lng: coords.lng } });
+      } catch (locErr) {
+        console.warn('Location access denied or failed', locErr);
+      }
+      
       navigate('/home');
     } catch (err) {
       setError(err.message || 'Invalid phone number or password.');

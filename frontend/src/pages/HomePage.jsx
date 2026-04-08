@@ -2,22 +2,16 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { useAuth } from '../contexts/AuthContext';
+import { calculateDistance } from '../lib/location';
 import TopBar from '../components/TopBar';
 import BottomNav from '../components/BottomNav';
 import TaskCard from '../components/TaskCard';
 
-const MOCK_TASKS = [
-  { id: '1', title: 'Urban Balcony Garden Setup', description: 'Need help arranging pots and soil for a small 4x8 balcony. Looking for someone with basic plant knowledge.', price: 800, poster_name: 'Priya S.', distance_km: 1.2, created_at: new Date(Date.now() - 7200000).toISOString() },
-  { id: '2', title: 'IKEA Furniture Assembly', description: 'Looking for someone to assemble a PAX wardrobe and a desk. Should have their own basic tools.', price: 1200, poster_name: 'Rahul M.', distance_km: 2.5, created_at: new Date(Date.now() - 18000000).toISOString() },
-  { id: '3', title: 'Grocery Pickup & Delivery', description: 'Need a few items from the organic store nearby delivered to my home. Distance is less than 1km.', price: 500, poster_name: 'Ananya K.', distance_km: 0.8, created_at: new Date(Date.now() - 600000).toISOString() },
-];
-
-
-
 export default function HomePage() {
   const { user } = useAuth();
   const navigate = useNavigate();
-  const [tasks, setTasks] = useState(MOCK_TASKS);
+  const [tasks, setTasks] = useState([]);
+  const [maxRadius, setMaxRadius] = useState(6);
 
   const [loading, setLoading] = useState(false);
 
@@ -28,21 +22,37 @@ export default function HomePage() {
   async function fetchTasks() {
     setLoading(true);
     try {
+      const twoHoursAgo = new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString();
+      
       const { data, error } = await supabase
         .from('tasks')
         .select('*, profiles:created_by(name, avatar_url)')
         .eq('status', 'open')
+        .gte('created_at', twoHoursAgo)
         .order('created_at', { ascending: false });
 
-      if (!error && data?.length > 0) {
-        setTasks(data.map(t => ({
-          ...t,
-          poster_name: t.profiles?.name || 'Anonymous',
-          poster_avatar: t.profiles?.avatar_url || null,
-        })));
+      if (!error && data) {
+        const uLat = user?.user_metadata?.lat;
+        const uLng = user?.user_metadata?.lng;
+
+        let mappedTasks = data.map(t => {
+          let calcDist = null;
+          if (uLat && uLng && t.lat && t.lng) {
+            calcDist = calculateDistance(uLat, uLng, t.lat, t.lng);
+          }
+          return {
+            ...t,
+            poster_name: t.profiles?.name || 'Anonymous',
+            poster_avatar: t.profiles?.avatar_url || null,
+            distance_km: calcDist
+          };
+        });
+
+        // Save all mapped tasks
+        setTasks(mappedTasks);
       }
     } catch {
-      // fallback to mock data
+      // handle error
     } finally {
       setLoading(false);
     }
@@ -84,23 +94,54 @@ export default function HomePage() {
           </div>
         </section>
 
-
-
         {/* Tasks */}
-        <div className="flex justify-between items-end mb-5 px-1">
+        <div className="flex justify-between items-center mb-5 px-1">
           <h3 className="text-xl font-bold tracking-tight">Active Tasks</h3>
-          <span className="text-primary text-sm font-bold cursor-pointer">See all</span>
+          
+          {user?.user_metadata?.lat ? (
+            <div className="relative flex items-center bg-surface-container-low rounded-lg border border-surface-container-highest/50 overflow-hidden">
+              <span className="material-symbols-outlined text-primary text-[16px] pl-2 absolute pointer-events-none">my_location</span>
+              <select
+                value={maxRadius}
+                onChange={e => setMaxRadius(Number(e.target.value))}
+                className="bg-transparent text-on-surface text-xs font-bold border-none py-2 pl-8 pr-8 appearance-none outline-none cursor-pointer w-full"
+              >
+                <option value={0.5}>&lt; 500m</option>
+                <option value={1}>&lt; 1 km</option>
+                <option value={2}>&lt; 2 km</option>
+                <option value={4}>&lt; 4 km</option>
+                <option value={6}>&lt; 6 km</option>
+              </select>
+              <span className="material-symbols-outlined text-on-surface-variant text-[16px] absolute right-2 pointer-events-none">expand_more</span>
+            </div>
+          ) : (
+            <span className="text-primary text-sm font-bold cursor-pointer">See all</span>
+          )}
         </div>
 
         {loading ? (
           <div className="flex justify-center py-12">
             <span className="material-symbols-outlined text-primary text-4xl animate-spin">progress_activity</span>
           </div>
-        ) : (
-          <div className="grid gap-5">
-            {tasks.map(task => <TaskCard key={task.id} task={task} />)}
-          </div>
-        )}
+        ) : (() => {
+          const uLat = user?.user_metadata?.lat;
+          const uLng = user?.user_metadata?.lng;
+          const displayedTasks = (uLat && uLng) 
+            ? tasks.filter(t => t.distance_km !== null && t.distance_km <= maxRadius)
+            : tasks;
+
+          return displayedTasks.length > 0 ? (
+            <div className="grid gap-5">
+              {displayedTasks.map(task => <TaskCard key={task.id} task={task} />)}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center p-8 text-center bg-surface-container-low rounded-xl border border-surface-container-highest border-dashed">
+              <span className="material-symbols-outlined text-4xl text-on-surface-variant mb-2">location_off</span>
+              <p className="text-sm font-medium text-on-surface-variant">No tasks found within a {maxRadius}km radius.</p>
+              <p className="text-xs text-outline mt-1">Try expanding your search radius or posting a task!</p>
+            </div>
+          );
+        })()}
       </main>
 
       <BottomNav />

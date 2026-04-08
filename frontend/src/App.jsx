@@ -8,6 +8,9 @@ import HistoryPage from './pages/HistoryPage';
 import MessagesPage from './pages/MessagesPage';
 import ChatPage from './pages/ChatPage';
 import ProfilePage from './pages/ProfilePage';
+import HelpSupportPage from './pages/HelpSupportPage';
+import AdminLoginPage from './pages/AdminLoginPage';
+import AdminDashboard from './pages/AdminDashboard';
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -39,6 +42,11 @@ function PublicRoute({ children }) {
   return user ? <Navigate to="/home" replace /> : children;
 }
 
+function AdminRoute({ children }) {
+  const isAdmin = localStorage.getItem('tasksnap_admin_key') === 'admin_verified';
+  return isAdmin ? children : <Navigate to="/admin/login" replace />;
+}
+
 export default function App() {
   return (
     <AuthProvider>
@@ -53,8 +61,13 @@ export default function App() {
           <Route path="/post" element={<ProtectedRoute><PostTaskPage /></ProtectedRoute>} />
           <Route path="/history" element={<ProtectedRoute><HistoryPage /></ProtectedRoute>} />
           <Route path="/messages" element={<ProtectedRoute><MessagesPage /></ProtectedRoute>} />
-          <Route path="/chat/:taskId" element={<ProtectedRoute><ChatPage /></ProtectedRoute>} />
+          <Route path="/chat/:taskId/:applicantId" element={<ProtectedRoute><ChatPage /></ProtectedRoute>} />
           <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
+          <Route path="/support" element={<ProtectedRoute><HelpSupportPage /></ProtectedRoute>} />
+
+          {/* Admin Context */}
+          <Route path="/admin/login" element={<AdminLoginPage />} />
+          <Route path="/admin" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
 
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />

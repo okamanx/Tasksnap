@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -12,9 +12,28 @@ export default function ProfilePage() {
 
   const name = user?.user_metadata?.name || profile?.name || 'Tasker';
   const phone = user?.user_metadata?.phone || '—';
-  const skillType = user?.user_metadata?.skill_type || 'Unskilled';
+  let skillType = user?.user_metadata?.skill_type || 'User';
+  if (skillType === 'Unskilled') skillType = 'User';
   const avatarUrl = user?.user_metadata?.avatar_url || profile?.avatar_url || null;
   const fileRef = useRef(null);
+  const [stats, setStats] = useState({ earned: 0, completed: 0 });
+
+  useEffect(() => {
+    if (user?.id) fetchStats();
+  }, [user]);
+
+  async function fetchStats() {
+    const { data } = await supabase
+      .from('tasks')
+      .select('price')
+      .eq('accepted_by', user.id)
+      .eq('status', 'completed');
+      
+    if (data) {
+      const earned = data.reduce((acc, curr) => acc + (curr.price || 0), 0);
+      setStats({ earned, completed: data.length });
+    }
+  }
 
   function toggleDark() {
     setDarkMode(v => !v);
@@ -65,8 +84,7 @@ export default function ProfilePage() {
   const ITEMS = [
     { icon: 'notifications', label: 'Notifications', action: () => {} },
     { icon: 'dark_mode', label: 'Dark Mode', toggle: true },
-    { icon: 'folder_shared', label: 'Portfolio', action: () => {} },
-    { icon: 'support_agent', label: 'Help & Support', action: () => {} },
+    { icon: 'support_agent', label: 'Help & Support', action: () => navigate('/support') },
   ];
 
   return (
@@ -102,11 +120,11 @@ export default function ProfilePage() {
         <div className="grid grid-cols-2 gap-4 mb-8">
           <div className="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-surface-container-highest/10">
             <span className="text-on-surface-variant text-sm font-label uppercase tracking-widest block mb-1">Total Earned</span>
-            <span className="text-tertiary text-2xl font-headline font-bold">₹0</span>
+            <span className="text-tertiary text-2xl font-headline font-bold">₹{stats.earned.toLocaleString('en-IN')}</span>
           </div>
           <div className="bg-surface-container-lowest p-6 rounded-lg card-shadow border border-surface-container-highest/10">
             <span className="text-on-surface-variant text-sm font-label uppercase tracking-widest block mb-1">Tasks Done</span>
-            <span className="text-primary text-2xl font-headline font-bold">0</span>
+            <span className="text-primary text-2xl font-headline font-bold">{stats.completed}</span>
           </div>
         </div>
 

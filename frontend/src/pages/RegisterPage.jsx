@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { supabase } from '../lib/supabase';
+import { getCurrentLocation } from '../lib/location';
 
-const SKILL_TYPES = ['Unskilled', 'Skilled'];
 
 export default function RegisterPage() {
   const { signUp } = useAuth();
@@ -13,7 +14,8 @@ export default function RegisterPage() {
     phone: '',
     password: '',
     confirmPassword: '',
-    skillType: 'Unskilled',
+    isProfessional: false,
+    portfolioFile: null,
   });
   const [showPw, setShowPw] = useState(false);
   const [showCpw, setShowCpw] = useState(false);
@@ -34,10 +36,23 @@ export default function RegisterPage() {
     if (password.length < 6) {
       setError('Password must be at least 6 characters.'); return;
     }
+    if (form.isProfessional && !form.portfolioFile) {
+      setError('Please upload your portfolio/testimonial.'); return;
+    }
     setError('');
     setLoading(true);
     try {
+      const skillType = form.isProfessional ? 'Professional' : 'User';
       await signUp({ name, phone, password, skillType });
+
+      // Request location after successful signup
+      try {
+        const coords = await getCurrentLocation();
+        await supabase.auth.updateUser({ data: { lat: coords.lat, lng: coords.lng } });
+      } catch (locErr) {
+        console.warn('Location access denied or failed', locErr);
+      }
+
       navigate('/home');
     } catch (err) {
       setError(err.message || 'Registration failed. Please try again.');
@@ -146,27 +161,44 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            {/* Skill Type */}
-            <div className="space-y-2 pt-2">
+            {/* Professional Toggle */}
+            <div className="space-y-3 pt-2">
               <label className="block text-sm font-bold text-on-surface-variant uppercase tracking-wide px-1">
-                What are you looking for?
+                Who are you?
               </label>
-              <div className="grid grid-cols-2 gap-3 p-1.5 bg-surface-container-low rounded-xl">
-                {SKILL_TYPES.map(type => (
-                  <button
-                    key={type}
-                    type="button"
-                    onClick={() => setForm(f => ({ ...f, skillType: type }))}
-                    className={`h-11 flex items-center justify-center rounded-lg text-sm font-bold transition-all
-                      ${form.skillType === type
-                        ? 'bg-white text-primary-container shadow-sm'
-                        : 'text-on-surface-variant hover:text-on-surface'
-                      }`}
-                  >
-                    {type}
-                  </button>
-                ))}
+              <div
+                onClick={() => setForm(f => ({ ...f, isProfessional: !f.isProfessional }))}
+                className="flex items-center justify-between p-4 bg-surface-container-low rounded-xl cursor-pointer"
+              >
+                <div className="flex flex-col">
+                  <span className="font-bold text-on-surface">I am a Professional</span>
+                  <span className="text-xs text-on-surface-variant">Turn on to offer specialized skills</span>
+                </div>
+                <div className={`relative inline-flex items-center w-11 h-6 rounded-full transition-colors duration-300 ${form.isProfessional ? 'bg-primary-container' : 'bg-outline-variant'}`}>
+                  <div className={`absolute top-[2px] w-5 h-5 bg-white border border-gray-300 rounded-full transition-transform duration-300 ${form.isProfessional ? 'translate-x-[20px] left-[2px]' : 'left-[2px]'}`} />
+                </div>
               </div>
+
+              {form.isProfessional && (
+                <div className="p-4 bg-surface-container-lowest border-2 border-dashed border-outline-variant rounded-xl text-center">
+                  <label className="cursor-pointer block">
+                    <span className="material-symbols-outlined text-3xl text-primary mb-1">upload_file</span>
+                    <span className="block text-sm font-bold text-on-surface">Upload Portfolio / Testimonial</span>
+                    <span className="block text-xs text-on-surface-variant mt-1">(PDF or DOCX required)</span>
+                    <input
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      className="hidden"
+                      onChange={(e) => setForm(f => ({ ...f, portfolioFile: e.target.files[0] }))}
+                    />
+                  </label>
+                  {form.portfolioFile && (
+                    <div className="mt-3 text-sm font-semibold text-tertiary">
+                      Selected: {form.portfolioFile.name}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
 
             {/* Error */}
